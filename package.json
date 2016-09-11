@@ -1,0 +1,19 @@
+{
+  "name": "mailspree-ui",
+  "version": "0.1.0",
+  "description": "Mailspree ui is a react app for the mailspree service",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blacksails/mailspree-ui.git"
+  },
+  "author": "Benjamin Nørgaard",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/blacksails/mailspree-ui/issues"
+  },
+  "homepage": "https://github.com/blacksails/mailspree-ui#readme"
+}
