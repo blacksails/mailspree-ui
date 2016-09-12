@@ -1,0 +1,12 @@
+// Set default font
+$font-family-sans-serif: "Titillium Web", sans-serif;
+
+// Navbar settings
+$navbar-border-radius: 0;
+$navbar-padding-y: 1.5rem;
+
+// Enable flexbox
+$enable-flex: true;
+
+// Import bootstrap defaults
+@import "~bootstrap/scss/variables";

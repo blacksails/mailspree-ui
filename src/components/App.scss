@@ -1,0 +1,14 @@
+.content {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+// Footer CSS
+$footer-height: 3rem;
+.top {
+  min-height: 100%;
+  margin: 0 auto (-$footer-height);
+}
+.footerHeight {
+  height: $footer-height;
+}

@@ -4,7 +4,8 @@
   "description": "Mailspree ui is a react app for the mailspree service",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel-node tools/build",
+    "watch": "babel-node tools/watch"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,34 @@
   "bugs": {
     "url": "https://github.com/blacksails/mailspree-ui/issues"
   },
-  "homepage": "https://github.com/blacksails/mailspree-ui#readme"
+  "homepage": "https://github.com/blacksails/mailspree-ui#readme",
+  "dependencies": {
+    "bootstrap": "^4.0.0-alpha.4",
+    "express": "^4.14.0",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.8.0",
+    "react-router-redux": "^4.0.5",
+    "redux": "^3.6.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.14.0",
+    "babel-core": "^6.14.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-2": "^6.13.0",
+    "css-loader": "^0.25.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "node-sass": "^3.9.3",
+    "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.2"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  }
 }

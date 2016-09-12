@@ -1,0 +1,13 @@
+// Install font
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web:400,700,400italic);
+
+// Load bootstrap
+@import "bootstrap";
+
+// We need the following to stick the footer to the bottom of the page
+* {
+  margin: 0;
+}
+html, body, #root, #root > div {
+  height: 100%;
+}
