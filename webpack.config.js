@@ -59,6 +59,15 @@ export const clientConfig = Object.assign({}, webpackConfig, {
         test: /\.scss$/,
         exclude: globalStyles,
         loader: ExtractTextPlugin.extract("style", [cssModulesLoader, "sass?sourceMap"])
+      },
+
+      // Assets
+      {
+        test: /\.(png|xml|ico|json|svg)$/,
+        include: [
+          path.resolve(__dirname, "src/assets")
+        ],
+        loader: "file?name=[name].[ext]"
       }
 
     ]
