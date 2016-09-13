@@ -16,6 +16,10 @@ const SendEmail = () => (
             <input type="email" className="form-control" id="to" placeholder="Enter email"/>
           </div>
           <div className="form-group">
+            <label htmlFor="from">From</label>
+            <input type="email" className="form-control" id="from" placeholder="Enter email"/>
+          </div>
+          <div className="form-group">
             <label htmlFor="subject">Subject</label>
             <input type="text" className="form-control" id="subject" placeholder="Enter subject"/>
           </div>
