@@ -6,10 +6,15 @@ import configureStore from "../configureStore"
 import Routes from "./routes"
 
 const store = configureStore()
+const history = syncHistoryWithStore(browserHistory, store, {
+  selectLocationState(state) {
+    return state.get("routing").toJS()
+  }
+})
 
 const Root = () => (
   <Provider store={store}>
-    <Routes history={syncHistoryWithStore(browserHistory, store)}/>
+    <Routes history={history}/>
   </Provider>
 )
 
