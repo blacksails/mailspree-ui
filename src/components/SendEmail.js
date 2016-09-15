@@ -3,11 +3,12 @@ import { Container, Row } from "./Bootstrap"
 import { connect } from "react-redux"
 import ImmutablePropTypes from "react-immutable-proptypes"
 import { changeEmail } from "../actions/email"
+import { getEmail } from "../reducers/email"
 
 const SendEmail = ({ email, onEmailChange }) => (
   <Container>
     <Row>
-      <div className="col-xs-12">
+      <div className="col-xs">
         <h1 className="display-4 text-xs-center m-t-1 m-b-2">Let's get on a mailingspree!</h1>
         <p className="lead text-xs-center m-b-3">
           Fill out the email below to get started.
@@ -60,19 +61,18 @@ const SendEmail = ({ email, onEmailChange }) => (
     </Row>
   </Container>
 )
-
 SendEmail.propTypes = {
   email: ImmutablePropTypes.map.isRequired,
-  onEmailChange: PropTypes.func.isRequired
+  onEmailChange: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state) => ({
-  email: state.get("email")
+  email: getEmail(state)
 })
 const mapDispatchToProps = (dispatch) => ({
   onEmailChange(field) {
     return (event) => dispatch(changeEmail(field, event.target.value))
-  },
+  }
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SendEmail)

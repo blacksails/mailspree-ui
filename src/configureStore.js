@@ -1,7 +1,8 @@
-import { createStore } from "redux"
+import { createStore, compose, applyMiddleware } from "redux"
 import { combineReducers } from "redux-immutable"
 import reducers from "./reducers"
-import { LOCATION_CHANGE } from "react-router-redux"
+import thunk from "redux-thunk"
+import { LOCATION_CHANGE, routerMiddleware } from "react-router-redux"
 import Immutable from "immutable"
 
 const initialRouterState = Immutable.fromJS({
@@ -18,12 +19,16 @@ const routerReducer = (state = initialRouterState, action) => {
 
 const initialState = Immutable.Map()
 
-const configureStore = () => createStore(
+const configureStore = (history) => createStore(
   combineReducers({
     ...reducers,
     routing: routerReducer
   }),
-  window.devToolsExtension && window.devToolsExtension()
+  initialState,
+  compose(
+    applyMiddleware(thunk, routerMiddleware(history)),
+    window.devToolsExtension ? window.devToolsExtension() : f => f
+  )
 )
 
 export default configureStore

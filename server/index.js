@@ -1,6 +1,15 @@
 import express from "express";
 import {clientConfig} from "../webpack.config";
 
+const endpoint = process.env.MAILSPREE_ENDPOINT
+if (!endpoint) {
+  console.log("Please set the mailspree endpoint in the MAILSPREE_ENDPOINT variable")
+  process.exit(1)
+}
+const config = {
+  "endpoint": endpoint
+}
+
 const app = express();
 const port = 8080;
 app.use(express.static(clientConfig.output.path));
@@ -27,6 +36,7 @@ function renderFullPage() {
       </head>
       <body>
         <div id="root"></div>
+        <script>window.__CONFIG__ = ${JSON.stringify(config)}</script>
         <script src="bundle.js"></script>
       </body>
     </html>

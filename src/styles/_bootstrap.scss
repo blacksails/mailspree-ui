@@ -16,7 +16,7 @@
 @import "~bootstrap/scss/forms";
 @import "~bootstrap/scss/buttons";
 
-// Components
+// Components (let's only include what we need)
 //@import "~bootstrap/scss/animation";
 //@import "~bootstrap/scss/dropdown";
 //@import "~bootstrap/scss/button-group";
@@ -24,12 +24,12 @@
 //@import "~bootstrap/scss/custom-forms";
 @import "~bootstrap/scss/nav";
 @import "~bootstrap/scss/navbar";
-//@import "~bootstrap/scss/card";
+@import "~bootstrap/scss/card";
 //@import "~bootstrap/scss/breadcrumb";
 //@import "~bootstrap/scss/pagination";
 //@import "~bootstrap/scss/tags";
 //@import "~bootstrap/scss/jumbotron";
-//@import "~bootstrap/scss/alert";
+@import "~bootstrap/scss/alert";
 //@import "~bootstrap/scss/progress";
 //@import "~bootstrap/scss/media";
 //@import "~bootstrap/scss/list-group";
