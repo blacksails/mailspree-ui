@@ -28,7 +28,8 @@ const globalStyles = [
 ]
 export const clientConfig = Object.assign({}, webpackConfig, {
 
-  entry: './src/index.js',
+  // TODO: change the inclusion of polyfills to only include what we really need.
+  entry: ['babel-polyfill', './src/index.js'],
 
   output: {
     path: path.resolve(__dirname, 'dist/public'),
