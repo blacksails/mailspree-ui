@@ -43,7 +43,7 @@ export const login = (credentials) => {
               return
             }
             dispatch(receiveLogin(json))
-            dispatch(push('/'))
+            dispatch(push('/send'))
           })
       })
     // TODO: improve this so that the user sees that there is a connection

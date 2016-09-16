@@ -1,5 +1,5 @@
 import React from "react"
-import { Route, IndexRoute } from "react-router"
+import { Route, IndexRedirect } from "react-router"
 import App from "./components/App"
 import SendEmail from "./components/SendEmail"
 import Login from "./components/Login"
@@ -15,8 +15,9 @@ const getRoutes = (store) => {
 
   return (
     <Route path="/" component={App}>
-      <IndexRoute component={SendEmail} onEnter={checkAuth} />
+      <Route path="/send" component={SendEmail} onEnter={checkAuth} />
       <Route path="/login" component={Login} />
+      <IndexRedirect to="/send" />
     </Route>
   )
 

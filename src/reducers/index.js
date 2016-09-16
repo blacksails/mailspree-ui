@@ -1,9 +1,10 @@
 import email from "./email"
 import session from "./session"
+import routing from "./routing"
+import { combineReducers } from "redux-immutable"
 
-const reducers = {
+export default combineReducers({
   email,
-  session
-}
-
-export default reducers
+  session,
+  routing
+})
