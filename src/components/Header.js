@@ -38,4 +38,5 @@ const mapStateToProps = state => ({
   isAuthenticated: isAuthenticated(state)
 })
 
+// sadly we must mark this as impure because we rely on react routers Link
 export default connect(mapStateToProps, null, null, { pure: false })(Header)
