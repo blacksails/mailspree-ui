@@ -3,7 +3,8 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAILURE,
   LOGIN_USERNAME_CHANGE,
-  LOGIN_PASSWORD_CHANGE
+  LOGIN_PASSWORD_CHANGE,
+  LOGOUT
 } from "../actions/session"
 import Immutable from "immutable"
 import { combineReducers } from "redux-immutable"
@@ -35,6 +36,8 @@ const token = (state = null, action) => {
   switch (action.type) {
     case LOGIN_SUCCESS:
       return action.token
+    case LOGOUT:
+      return null
     default:
       return state
   }

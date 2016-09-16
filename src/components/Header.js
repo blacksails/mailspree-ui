@@ -3,8 +3,10 @@ import { connect } from "react-redux"
 import { Link } from "react-router"
 import { Container } from "./Bootstrap"
 import { isAuthenticated } from "../reducers/session"
+import { logout } from "../actions/session"
+import { push } from "react-router-redux"
 
-const Header = ({ isAuthenticated }) => {
+const Header = ({ isAuthenticated, logout }) => {
 
   let links = []
   if (isAuthenticated) {
@@ -13,13 +15,11 @@ const Header = ({ isAuthenticated }) => {
         <Link to="send" className="nav-link" activeClassName="active">Send Email</Link>
       </li>
     )
-    /* TODO: implement logout
-     *links.push(
-     *  <li className="nav-item">
-     *    <a className="nav-link">Log out</a>
-     *  </li>
-     *)
-     */
+    links.push(
+      <li key="1" className="nav-item">
+        <a className="nav-link" onClick={logout} style={{cursor: "pointer"}}>Logout</a>
+      </li>
+    )
   }
 
   return (
@@ -33,10 +33,20 @@ const Header = ({ isAuthenticated }) => {
     </nav>
   )
 }
+Header.propTypes = {
+  isAuthenticated: React.PropTypes.bool.isRequired,
+  onLogout: React.PropTypes.func.isRequired
+}
 
 const mapStateToProps = state => ({
   isAuthenticated: isAuthenticated(state)
 })
+const mapDispatchToProps = dispatch => ({
+  logout: () => {
+    dispatch(logout())
+    dispatch(push('/login'))
+  }
+})
 
 // sadly we must mark this as impure because we rely on react routers Link
-export default connect(mapStateToProps, null, null, { pure: false })(Header)
+export default connect(mapStateToProps, mapDispatchToProps, null, { pure: false })(Header)

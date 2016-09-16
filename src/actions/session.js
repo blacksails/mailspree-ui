@@ -9,6 +9,7 @@ export const LOGIN_PASSWORD_CHANGE = "LOGIN_PASSWORD_CHANGE"
 export const LOGIN_REQUEST = "LOGIN_REQUEST"
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS"
 export const LOGIN_FAILURE = "LOGIN_FAILURE"
+export const LOGOUT = "LOGOUT"
 
 // Action creators
 export const changeUsername = (username) => ({type: LOGIN_USERNAME_CHANGE, username})
@@ -23,6 +24,8 @@ const receiveLogin = (session) => ({
 })
 
 const loginError = () => ({type: LOGIN_FAILURE})
+
+export const logout = () => ({type: LOGOUT})
 
 export const login = (credentials) => {
 
