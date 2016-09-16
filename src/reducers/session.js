@@ -54,7 +54,8 @@ const isFetching = (state = false, action) => {
 
 // Selectors
 const getSession = state => state.get("session")
-export const isAuthenticated = state => getSession(state).get("token") !== null
+export const getToken = state => getSession(state).get("token")
+export const isAuthenticated = state => getToken(state) !== null
 export const getCredentials = state => getSession(state).get("credentials")
 export const getLoginFailed = state => getSession(state).get("loginFailed")
 

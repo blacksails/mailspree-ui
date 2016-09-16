@@ -2,10 +2,28 @@ import React, { PropTypes }from "react"
 import { Container, Row } from "./Bootstrap"
 import { connect } from "react-redux"
 import ImmutablePropTypes from "react-immutable-proptypes"
-import { changeEmail } from "../actions/email"
-import { getEmail } from "../reducers/email"
+import { changeEmail, sendEmail } from "../actions/email"
+import { getMessage, getSendFailed, getSendSucceeded } from "../reducers/email"
+import { getToken } from "../reducers/session"
+import { Alert } from "./Bootstrap"
 
-const SendEmail = ({ email, onEmailChange }) => (
+const alertError = error => {
+  if (error) {
+    return <Alert 
+      type="danger"
+      strong="Unfortunately there was a problem sending your email!"
+      desc="Please try again..." />
+  }
+}
+const alertSuccess = success => {
+  if (success) {
+    return <Alert 
+      type="success"
+      strong="Your email was sent!"
+      desc="Now let's send another one" />
+  }
+}
+const SendEmail = ({ message, error, success, token, onEmailChange, onEmailSubmit }) => (
   <Container>
     <Row>
       <div className="col-xs">
@@ -13,8 +31,10 @@ const SendEmail = ({ email, onEmailChange }) => (
         <p className="lead text-xs-center m-b-3">
           Fill out the email below to get started.
         </p>
+        { alertError(error) }
+        { alertSuccess(success) }
         <h3>Email</h3>
-        <form>
+        <form onSubmit={onEmailSubmit(message, token)}>
           <div className="form-group">
             <label htmlFor="to">To</label>
             <input
@@ -22,7 +42,7 @@ const SendEmail = ({ email, onEmailChange }) => (
               className="form-control" 
               id="to"
               placeholder="Enter email"
-              value={email.get("to")}
+              value={message.get("to")}
               onChange={onEmailChange("to")}/>
           </div>
           <div className="form-group">
@@ -32,7 +52,7 @@ const SendEmail = ({ email, onEmailChange }) => (
               className="form-control"
               id="from"
               placeholder="Enter email"
-              value={email.get("from")}
+              value={message.get("from")}
               onChange={onEmailChange("from")}/>
           </div>
           <div className="form-group">
@@ -42,7 +62,7 @@ const SendEmail = ({ email, onEmailChange }) => (
               className="form-control"
               id="subject"
               placeholder="Enter subject"
-              value={email.get("subject")}
+              value={message.get("subject")}
               onChange={onEmailChange("subject")}/>
           </div>
           <div className="form-group">
@@ -52,7 +72,7 @@ const SendEmail = ({ email, onEmailChange }) => (
               className="form-control"
               id="body"
               placeholder="Enter message"
-              value={email.get("body")}
+              value={message.get("body")}
               onChange={onEmailChange("body")}/>
           </div>
           <button type="submit" className="btn btn-primary pull-xs-right">Send</button>
@@ -62,16 +82,29 @@ const SendEmail = ({ email, onEmailChange }) => (
   </Container>
 )
 SendEmail.propTypes = {
-  email: ImmutablePropTypes.map.isRequired,
+  message: ImmutablePropTypes.map.isRequired,
+  error: PropTypes.bool.isRequired,
+  success: PropTypes.bool.isRequired,
+  token: PropTypes.string.isRequired,
   onEmailChange: PropTypes.func.isRequired,
+  onEmailSubmit: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state) => ({
-  email: getEmail(state)
+  message: getMessage(state),
+  error: getSendFailed(state),
+  success: getSendSucceeded(state),
+  token: getToken(state),
 })
 const mapDispatchToProps = (dispatch) => ({
   onEmailChange(field) {
     return (event) => dispatch(changeEmail(field, event.target.value))
+  },
+  onEmailSubmit(message, token) {
+    return (event) => {
+      event.preventDefault()
+      dispatch(sendEmail(message, token))
+    }
   }
 })
 
