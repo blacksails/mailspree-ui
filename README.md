@@ -9,6 +9,15 @@ The mailspree service it not included in mailspree-ui, but it depends upon it.
 Read more about mailspree in its own repository:
 [mailspree](https://github.com/blacksails/mailspree)
 
+## Architecture
+
+Mailspree UI is a react application. It uses redux to provide a highly
+predictable state store. It has a small express webserver which serves the app.
+The express server will at some point also do initial server side rendering of
+the app, which means that the end user will have the initial app rendered
+faster.
+
+
 ## Installation
 
 The easiest way to run mailspree-ui is using docker. You can either grab the
@@ -43,14 +52,6 @@ example. Then run the mailspree-ui container with docker compose.
 docker-compose up
 ```
 
-## Architecture
-
-Mailspree UI is a react application. It uses redux to provide a highly
-predictable state store. It has a small express webserver which serves the app.
-The express server will at some point also do initial server side rendering of
-the app, which means that the end user will have the initial app rendered
-faster.
-
 ## Future ideas
 Because this webapp is based upon the mailspree service, it currently only
 supports the things that the mailspree api makes possible. Read the
@@ -71,6 +72,14 @@ To ensure that your emails get delivered, please use a from address on the
 mailspree.io domain. Not doing this can result in deliverability issues due to
 SPF and DKIM. Read more about that in the readme of the
 [mailspree](https://github.com/blacksails/mailspree) service.
+
+## Acknowledgements
+I have only written javascript since 2015. So some of my code might not be that
+idiomatic, if that is even a thing in javascript.
+
+I am new to the react eco system. I started looking into react in the spring of
+2016, this is my first real project. It is also the first project where i have
+included the redux state library.
 
 ## Credits
 
