@@ -46,7 +46,8 @@
     "node-sass": "^3.9.3",
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
-    "webpack": "^1.13.2"
+    "webpack": "^1.13.2",
+    "whatwg-fetch": "^1.0.0"
   },
   "babel": {
     "presets": [
