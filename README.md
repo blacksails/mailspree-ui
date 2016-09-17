@@ -67,6 +67,11 @@ username `admin` and password `supersecret`. Please note that the demo uses
 free mailgun and sendgrid accounts to send the emails. When these reach their
 usage limit, sending email will give errors.
 
+To ensure that your emails get delivered, please use a from address on the
+mailspree.io domain. Not doing this can result in deliverability issues due to
+SPF and DKIM. Read more about that in the readme of the
+[mailspree](https://github.com/blacksails/mailspree) service.
+
 ## Credits
 
 Author: Benjamin Nørgaard ([blacksails](https://github.com/blacksails))
