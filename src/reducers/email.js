@@ -21,6 +21,8 @@ const message = (state = emptyMessage, action) => {
   switch (action.type) {
     case CHANGE_EMAIL:
       return state.set(action.field, action.value)
+    case SEND_SUCCESS:
+      return emptyMessage.merge(state.filter((v, k) => k === "from"))
     default:
       return state
   }
