@@ -20,8 +20,7 @@ const loadState = () => {
 const saveState = (state) => {
   try {
     // for now lets just save the session data
-    state.filter((v, k) => k === "session") 
-    const serializedState = JSON.stringify(state.toJS())
+    const serializedState = JSON.stringify(state.filter((v, k) => k === "session").toJS())
     localStorage.setItem("state", serializedState)
   } catch(err) {
     // ignore write errors for now
