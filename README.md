@@ -51,6 +51,15 @@ The express server will at some point also do initial server side rendering of
 the app, which means that the end user will have the initial app rendered
 faster.
 
+## Future ideas
+Because this webapp is based upon the mailspree service, it currently only
+supports the things that the mailspree api makes possible. Read the
+[mailspree](https://github.com/blacksails/mailspree) readme for a list of
+things that could be added to the service in the future.
+
+There are a few things that could be improved in this app which does not depend
+on the backend service. See the issues of this project for some of them.
+
 ## Credits
 
 Author: Benjamin Nørgaard ([blacksails](https://github.com/blacksails))
