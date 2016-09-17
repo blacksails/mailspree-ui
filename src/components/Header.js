@@ -35,7 +35,7 @@ const Header = ({ isAuthenticated, logout }) => {
 }
 Header.propTypes = {
   isAuthenticated: React.PropTypes.bool.isRequired,
-  onLogout: React.PropTypes.func.isRequired
+  logout: React.PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({
@@ -45,6 +45,7 @@ const mapDispatchToProps = dispatch => ({
   logout: () => {
     dispatch(logout())
     dispatch(push('/login'))
+    localStorage.removeItem("state")
   }
 })
 
