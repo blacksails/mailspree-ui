@@ -60,6 +60,13 @@ things that could be added to the service in the future.
 There are a few things that could be improved in this app which does not depend
 on the backend service. See the issues of this project for some of them.
 
+## Demo
+
+See a demo of the app at [mailspree.io](https://mailspree.io). Login with
+username `admin` and password `supersecret`. Please note that the demo uses
+free mailgun and sendgrid accounts to send the emails. When these reach their
+usage limit, sending email will give errors.
+
 ## Credits
 
 Author: Benjamin Nørgaard ([blacksails](https://github.com/blacksails))
