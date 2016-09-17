@@ -16,6 +16,8 @@ const credentials = (state = emptyCreds, action) => {
       return state.set("username", action.username)
     case LOGIN_PASSWORD_CHANGE:
       return state.set("password", action.password)
+    case LOGIN_SUCCESS:
+      return emptyCreds
     default:
       return state
   }
