@@ -34,7 +34,7 @@ const SendEmail = ({ message, error, success, token, onEmailChange, onEmailSubmi
         { alertError(error) }
         { alertSuccess(success) }
         <h3>Email</h3>
-        <form onSubmit={onEmailSubmit(message, token)}>
+        <form onSubmit={onEmailSubmit(message, token)} noValidate>
           <div className="form-group">
             <label htmlFor="to">To</label>
             <input
