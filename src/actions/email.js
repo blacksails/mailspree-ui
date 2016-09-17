@@ -1,4 +1,6 @@
 import { endpoint } from "../config"
+import { push } from "react-router-redux"
+import { logout } from "./session"
 
 const send = endpoint() + "/send"
 
@@ -51,6 +53,9 @@ export const sendEmail = (message, token) => {
     return fetch(send, config)
       .then(res => {
         if (!res.ok) {
+          if (res.status === 401) {
+            dispatch(logout)
+          }
           dispatch(sendError())
           return
         }

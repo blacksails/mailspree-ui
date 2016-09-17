@@ -44,8 +44,6 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   logout: () => {
     dispatch(logout())
-    dispatch(push('/login'))
-    localStorage.removeItem("state")
   }
 })
 

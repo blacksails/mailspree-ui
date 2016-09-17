@@ -25,7 +25,10 @@ const receiveLogin = (session) => ({
 
 const loginError = () => ({type: LOGIN_FAILURE})
 
-export const logout = () => ({type: LOGOUT})
+export const logout = () => (dispatch) => {
+  dispatch(push('/login'))
+  dispatch({type: LOGOUT})
+}
 
 export const login = (credentials) => {
 
