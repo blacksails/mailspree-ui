@@ -3,6 +3,7 @@ import {
   CHANGE_EMAIL,
   SEND_START,
   SEND_SUCCESS,
+  SEND_SUCCESS_HIDE,
   SEND_FAILURE,
   SEND_FAILURE_HIDE
 } from "../actions/email"
@@ -57,6 +58,7 @@ const sendSucceeded = (state = false, action) => {
     case SEND_SUCCESS:
       return true
     case SEND_FAILURE:
+    case SEND_SUCCESS_HIDE:
       return false
     default:
       return state

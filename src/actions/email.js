@@ -9,6 +9,7 @@ export const CHANGE_EMAIL = "CHANGE_EMAIL"
 export const SEND_START = "SEND_START"
 export const SEND_EMAIL = "SEND_EMAIL"
 export const SEND_SUCCESS = "SEND_SUCCESS"
+export const SEND_SUCCESS_HIDE = "SEND_SUCCESS_HIDE"
 export const SEND_FAILURE = "SEND_FAILURE"
 export const SEND_FAILURE_HIDE = "SEND_FAILURE_HIDE"
 
@@ -21,13 +22,18 @@ export const changeEmail = (field, value) => ({
 
 const startSending = () => ({"type": SEND_START})
 const sendSuccess = () => ({"type": SEND_SUCCESS})
+const hideSendSuccess = () => ({"type": SEND_SUCCESS_HIDE})
 const sendFailure = () => ({"type": SEND_FAILURE})
 const hideSendFailure = () => ({"type": SEND_FAILURE_HIDE})
 
 // Async action creators
+const sendOK = () => dispatch => {
+  dispatch(sendSuccess())
+  setTimeout(() => dispatch(hideSendSuccess()), 5000)
+}
 const sendError = () => dispatch => {
   dispatch(sendFailure())
-  setTimeout(() => dispatch(hideSendFailure()), 3000)
+  setTimeout(() => dispatch(hideSendFailure()), 5000)
 }
 
 export const sendEmail = (message, token) => {
@@ -59,7 +65,7 @@ export const sendEmail = (message, token) => {
           dispatch(sendError())
           return
         }
-        dispatch(sendSuccess())
+        dispatch(sendOK())
       })
       .catch(err => {
         console.log("Fetch error: " + err)
