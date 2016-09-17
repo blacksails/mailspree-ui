@@ -1,3 +1,4 @@
+[![Dockerhub](https://img.shields.io/badge/dockerhub-repo-blue.svg)](https://hub.docker.com/r/blacksails/mailspree-ui)
 # mailspree-ui
 
 Instead of integrating the [mailspree](https://github.com/blacksails/mailspree)
