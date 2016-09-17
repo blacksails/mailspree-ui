@@ -35,7 +35,8 @@ docker run -d --name mailspree-ui --port 80:8080 \
 
 Instead of using `docker run` you can save a create an environment varibale
 file in the directory, called `mailspree-ui-vars.env`, which contains the
-environment variable. See the `mailspree-ui-vars.env.example` file for an
+environment variable. See the
+[mailspree-ui-vars.env.example](mailspree-ui-vars.env.example) file for an
 example. Then run the mailspree-ui container with docker compose.
 
 ```base
